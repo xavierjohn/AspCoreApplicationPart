@@ -49,11 +49,11 @@ namespace AspCoreApplicationPart
         private List<ApplicationPart> GetModulesOfType(Type moduleType)
         {
             var applicationPartsList = new List<ApplicationPart>();
-            var dllFiles = Directory.EnumerateFiles($"{AppDomain.CurrentDomain.BaseDirectory}Plugins\\netstandard2.0", "*.dll");
+            var dllFiles = Directory.EnumerateFiles($"{AppDomain.CurrentDomain.BaseDirectory}Plugins", "*.dll");
             foreach (var dllFile in dllFiles)
             {
-                var dll = Assembly.LoadFile(dllFile);
-                if(dll.GetTypes().Any(t => t != moduleType && moduleType.IsAssignableFrom(t)))
+                var dll = Assembly.LoadFrom(dllFile);
+                if(dll.GetExportedTypes().Any(t => t != moduleType && moduleType.IsAssignableFrom(t)))
                 {
                     applicationPartsList.Add(new AssemblyPart(dll));
                 }

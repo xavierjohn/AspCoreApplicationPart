@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <Target Name="CopyToPlugIns" AfterTargets="Build">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(MSBuildThisFileDirectory)\..\AspCoreApplicationPart\bin\$(Configuration)\netcoreapp2.2\Plugins" />
+  </Target>
+</Project>
