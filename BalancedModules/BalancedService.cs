@@ -8,6 +8,7 @@ namespace PlugIns
     [Route("[controller]/[action]")]
     public class BalancedService : Balanced
     {
+        [HttpGet]
         public ActionResult<string> Get()
         {
             return "Balanced Service";

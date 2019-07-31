@@ -2,16 +2,16 @@
 using ModuleType;
 using System;
 
-namespace HappyModules
+namespace BalancedHappyModules
 {
     [ApiController]
     [Route("[controller]/[action]")]
-    public class HappyService : Happy
+    public class Balanced2Service : Balanced
     {
         [HttpGet]
         public ActionResult<string> Get()
         {
-            return "Happy Service";
+            return "Balanced 2 Service";
         }
     }
 }

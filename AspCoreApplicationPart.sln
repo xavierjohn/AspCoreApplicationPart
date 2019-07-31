@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModuleTypes", "ModuleTypes\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BalancedModules", "BalancedModules\BalancedModules.csproj", "{69511569-49E0-49A9-A10A-AC89CD4ACC88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HappyModules", "HappyModules\HappyModules.csproj", "{D41565C3-2BD5-440A-ACB7-EECC3A5D8592}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HappyModules", "HappyModules\HappyModules.csproj", "{D41565C3-2BD5-440A-ACB7-EECC3A5D8592}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BalancedHappyModules", "BalancedHappyModules\BalancedHappyModules.csproj", "{B6432A63-610D-4231-B981-29E1626EF6E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D41565C3-2BD5-440A-ACB7-EECC3A5D8592}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D41565C3-2BD5-440A-ACB7-EECC3A5D8592}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D41565C3-2BD5-440A-ACB7-EECC3A5D8592}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6432A63-610D-4231-B981-29E1626EF6E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6432A63-610D-4231-B981-29E1626EF6E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6432A63-610D-4231-B981-29E1626EF6E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6432A63-610D-4231-B981-29E1626EF6E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
