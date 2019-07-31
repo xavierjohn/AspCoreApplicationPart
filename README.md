@@ -1,2 +1,2 @@
 # AspCoreApplicationPart
-Dynamically loading controllers.
+Dynamically load controllers derived from a given type.
