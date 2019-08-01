@@ -30,52 +30,13 @@ namespace AspCoreApplicationPart
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-                .AddControllersAsServices();
-
-            AddControllersOfType(typeof(ModuleType.Happy), services);
-                //.ConfigureApplicationPartManager( apm =>
-                //{
-                //    List<ApplicationPart> applicationParts = GetModulesOfType(typeof(ModuleType.Happy));
-                //    foreach(var part in applicationParts)
-                //    {
-                //        apm.ApplicationParts.Add(part);
-                //    }
-                //});
+                .ConfigureApplicationPartManager(apm =>
+                    apm.FeatureProviders.Add(new GenericControllerFeatureProvider(typeof(ModuleType.Happy))));
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
-        }
-
-        private static void AddControllersOfType(Type moduleType, IServiceCollection services)
-        {
-            var dllFiles = Directory.EnumerateFiles($"{AppDomain.CurrentDomain.BaseDirectory}Plugins", "*.dll");
-            foreach (var dllFile in dllFiles)
-            {
-                var dll = Assembly.LoadFrom(dllFile);
-                var typeControllers  = dll.GetExportedTypes().Where(t => t != moduleType && moduleType.IsAssignableFrom(t));
-                foreach (var cType in typeControllers)
-                {
-                    services.AddTransient(cType);
-                }
-            }
-        }
-
-        private List<ApplicationPart> GetModulesOfType(Type moduleType)
-        {
-            var applicationPartsList = new List<ApplicationPart>();
-            var dllFiles = Directory.EnumerateFiles($"{AppDomain.CurrentDomain.BaseDirectory}Plugins", "*.dll");
-            foreach (var dllFile in dllFiles)
-            {
-                var dll = Assembly.LoadFrom(dllFile);
-                if(dll.GetExportedTypes().Any(t => t != moduleType && moduleType.IsAssignableFrom(t)))
-                {
-                    applicationPartsList.Add(new AssemblyPart(dll));
-                }
-            }
-            return applicationPartsList;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
