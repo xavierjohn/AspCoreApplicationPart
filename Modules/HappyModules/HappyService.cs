@@ -11,7 +11,12 @@ namespace HappyModules
         [HttpGet]
         public ActionResult<string> Get()
         {
-            return "Happy Service";
+            var returnString = "Happy Service";
+            if (!string.IsNullOrEmpty(base.CorrelationId))
+            {
+                returnString += $" Correlation Id :{base.CorrelationId}";
+            }
+            return returnString;
         }
     }
 }
